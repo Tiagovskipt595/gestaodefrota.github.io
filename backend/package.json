@@ -6,7 +6,8 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "start": "ts-node src/index.ts",
+    "build": "npm install && npm rebuild sqlite3 && tsc",
+    "start": "node dist/index.js",
     "seed": "ts-node src/seed.ts"
   },
   "dependencies": {
