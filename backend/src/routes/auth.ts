@@ -2,9 +2,9 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { randomBytes } from 'crypto';
-import { getDb } from '../db.ts';
-import { requireAuth } from '../middleware/auth.ts';
-import { sendVerificationEmail } from '../utils/email.ts';
+import { getDb } from '../db';
+import { requireAuth, AuthRequest } from '../middleware/auth';
+import { sendVerificationEmail } from '../utils/email';
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'fleet-secret';
@@ -120,9 +120,9 @@ router.get('/verify/:token', async (req, res) => {
 
 
 // Delete authenticated user's account
-router.delete('/me', requireAuth, async (req, res) => {
+router.delete('/me', requireAuth, async (req: AuthRequest, res) => {
   const db = getDb();
-  const userId = req.user.id;
+  const userId = req.user!.id;
   const result = await db.run('DELETE FROM users WHERE id = ?', userId);
   if (result.changes === 0) {
     return res.status(404).json({ message: 'Utilizador não encontrado' });

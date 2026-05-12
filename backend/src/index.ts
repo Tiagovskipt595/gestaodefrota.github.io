@@ -1,14 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import authRoutes from './routes/auth.ts';
-import vehicleRoutes from './routes/vehicles.ts';
-import reservationRoutes from './routes/reservations.ts';
-import driverRoutes from './routes/drivers.ts';
-import reportRoutes from './routes/reports.ts';
-import alertRoutes from './routes/alerts.ts';
-import { errorHandler } from './middleware/error.ts';
-import { initDb } from './db.ts';
+import authRoutes from './routes/auth';
+import vehicleRoutes from './routes/vehicles';
+import reservationRoutes from './routes/reservations';
+import driverRoutes from './routes/drivers';
+import reportRoutes from './routes/reports';
+import alertRoutes from './routes/alerts';
+import { errorHandler } from './middleware/error';
+import { initDb } from './db';
 
 dotenv.config();
 

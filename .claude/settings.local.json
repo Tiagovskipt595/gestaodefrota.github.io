@@ -68,7 +68,8 @@
       "Bash(findstr :10000)",
       "Bash(findstr 5304)",
       "PowerShell(Stop-Process *)",
-      "Bash(New-Item *)"
+      "Bash(New-Item *)",
+      "Bash(git add *)"
     ]
   }
 }
