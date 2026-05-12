@@ -1,0 +1,16 @@
+{
+  "name": "fleet-management-suite",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "install-all": "npm install",
+    "dev:backend": "npm run dev --workspace backend",
+    "dev:frontend": "npm run dev --workspace frontend",
+    "seed": "npm run seed --workspace backend",
+    "start": "npm run start --workspace backend"
+  }
+}
