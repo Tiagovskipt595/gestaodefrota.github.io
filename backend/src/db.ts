@@ -3,7 +3,8 @@ import { Database, open } from 'sqlite';
 import fs from 'fs';
 import path from 'path';
 
-const dataDirectory = path.resolve('data');
+// Use environment variable for data directory, with fallback to local 'data' folder
+const dataDirectory = process.env.DATA_DIR ? process.env.DATA_DIR : path.resolve('data');
 if (!fs.existsSync(dataDirectory)) {
   fs.mkdirSync(dataDirectory, { recursive: true });
 }

@@ -15,7 +15,13 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT ? Number(process.env.PORT) : 4000;
 
-app.use(cors({ origin: ['http://localhost:5173', 'http://localhost:5174'] }));
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'https://Tiagovskipt595.github.io'
+  ]
+}));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
