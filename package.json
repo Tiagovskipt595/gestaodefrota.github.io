@@ -12,5 +12,8 @@
     "dev:frontend": "npm run dev --workspace frontend",
     "seed": "npm run seed --workspace backend",
     "start": "npm run start --workspace backend"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }

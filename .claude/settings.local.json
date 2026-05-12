@@ -67,7 +67,8 @@
       "Bash(PORT=10000 npx tsx src/index.ts)",
       "Bash(findstr :10000)",
       "Bash(findstr 5304)",
-      "PowerShell(Stop-Process *)"
+      "PowerShell(Stop-Process *)",
+      "Bash(New-Item *)"
     ]
   }
 }

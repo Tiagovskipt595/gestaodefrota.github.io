@@ -1,12 +1,15 @@
 {
   "name": "fleet-management-frontend",
   "version": "0.1.0",
+  "homepage": "https://Tiagovskipt595.github.io/Projeto-Teste",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^1.5.0",
