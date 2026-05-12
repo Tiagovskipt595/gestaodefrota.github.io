@@ -6,12 +6,8 @@ import { open } from 'sqlite';
 
 const main = async () => {
   const dbPath = path.resolve('data', 'fleet.db');
-  const schemaUrl = new URL('./schema.sql', import.meta.url);
-  let schemaPath = decodeURIComponent(schemaUrl.pathname);
-  // Remove leading slash on Windows paths
-  if (schemaPath.startsWith('/') && schemaPath.length > 2 && schemaPath[2] === ':') {
-    schemaPath = schemaPath.slice(1);
-  }
+  const schemaPath = path.resolve(__dirname, './schema.sql');
+
   console.log('Schema path:', schemaPath);
 
   if (!fs.existsSync(path.dirname(dbPath))) {

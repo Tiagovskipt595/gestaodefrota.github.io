@@ -69,7 +69,10 @@
       "Bash(findstr 5304)",
       "PowerShell(Stop-Process *)",
       "Bash(New-Item *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(pkill -f \"node dist/index.js\")",
+      "Bash(pkill -f \"npm start\")"
     ]
   }
 }

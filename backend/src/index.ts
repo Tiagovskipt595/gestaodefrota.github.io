@@ -33,8 +33,14 @@ app.use('/api/alerts', alertRoutes);
 
 app.use(errorHandler);
 
-await initDb();
+const startServer = async () => {
+  await initDb();
+  app.listen(port, () => {
+    console.log(`Fleet backend running on http://localhost:${port}`);
+  });
+};
 
-app.listen(port, () => {
-  console.log(`Fleet backend running on http://localhost:${port}`);
+startServer().catch(err => {
+  console.error('Failed to start server:', err);
+  process.exit(1);
 });
