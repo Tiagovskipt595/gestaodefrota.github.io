@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getToken } from './auth';
 
 const api = axios.create({
-  baseURL: 'http://localhost:4000/api',
+  baseURL: 'https://fleet-management-backend-production-d000.up.railway.app/api',
   headers: {
     'Content-Type': 'application/json'
   }
