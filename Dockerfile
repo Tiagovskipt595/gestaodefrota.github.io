@@ -1,15 +1,15 @@
 # ---- Builder ----
 FROM node:20-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
+WORKDIR /app/backend
+COPY backend/package.json ./
 RUN npm install
-COPY backend/ ./backend/
-RUN npx tsc --project backend/tsconfig.json
+COPY backend/ ./
+RUN ./node_modules/.bin/tsc
 
 # ---- Release ----
 FROM node:20-alpine
 WORKDIR /app/backend
-COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/backend/node_modules ./node_modules
 COPY --from=builder /app/backend/dist ./dist
 ENV NODE_ENV=production
 EXPOSE 4000
