@@ -1,0 +1,9 @@
+{
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "deploy": {
+    "restartPolicy": "onFailure",
+    "restartRetryCount": 3
+  }
+}
