@@ -1,20 +1,17 @@
-# ---- Base image ----
-FROM node:20-alpine AS base
+# ---- Dependencies ----
+FROM node:20-alpine AS deps
 WORKDIR /app
-
-# ---- Copy root lockfiles and package.json ----
 COPY package*.json ./
-
-# ---- Copy backend source ----
-COPY backend/ ./backend/
-
-# ---- Install backend dependencies only (using workspace lockfile) ----
 RUN npm ci --workspace backend
 
-# ---- Build TypeScript for backend ----
+# ---- Build ----
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY backend/ ./backend/
 RUN npm run build --workspace backend
 
-# ---- Release image ----
+# ---- Release ----
 FROM node:20-alpine AS release
 WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
