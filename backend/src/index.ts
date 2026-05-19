@@ -19,7 +19,10 @@ app.use(cors({
   origin: [
     'http://localhost:5173',
     'http://localhost:5174',
-    'https://Tiagovskipt595.github.io'
+    'https://Tiagovskipt595.github.io',
+    'http://fleet.empresa.local',
+    /.*\.trycloudflare\.com$/,
+    /.*\.github\.io$/
   ]
 }));
 app.use(express.json());
